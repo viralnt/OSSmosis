@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Option Express </title>
+
+	<style type="text/css">
+			
+			.axis path,
+			.axis line {
+				fill: none;
+				stroke: black;
+				shape-rendering: crispEdges;
+			}
+			
+			.axis text {
+				font-family: sans-serif;
+				font-size: 11px;
+			}
+		</style>	
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+ 	<script type="text/javascript" src="d3.v2.js"></script>
+    <script type="text/javascript" src="ChartPlot2.js"></script>
+    <script src="http://cdn.sockjs.org/sockjs-0.3.min.js"></script>
+    <script src="resources/stomp.js"></script>
+     
+</head>
+<body onload="onLoadCallback();">
+
+	<div><img src="OptionExpressLogo.PNG" alt="Return to OptionsXpress homepage" height="122" width="942" align="middle">
+	</div>
+	<br> <br>
+	<div id="input">
+	  <form id="share" name="share" method="post">
+	  <!-- 
+		<input type="text" id="shareCode" name="shareCode" value="Share Code" />
+		<input type="text" id="startDate" name="startDate" value="YYYY-MM-DD" />
+		<input type="text" id="endDate" name="endDate" value="YYYY-MM-DD" />
+		
+		-->
+		
+		&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; 
+		<input type="button" id="LineChart" value="Line" />
+		&nbsp; &nbsp; &nbsp;
+		<input type="button" id="CandleStickChart" value="CandleStick" />
+		&nbsp; &nbsp; &nbsp;
+		<input type="button" id="OHLChart" value="OHLC" />
+		&nbsp; &nbsp; &nbsp;
+		
+		 <input type="button" value="Go Live" name="animate" onclick="startAnimation()"/>
+		&nbsp; &nbsp; &nbsp;
+		
+		
+		</form>
+	</div>
+
+	 <div id="chart"></div>
+	 
+	
+	 
+</body>
+</html>
