@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Financial Streaming Charts with D3 and Angular </title>
+
+	<style type="text/css">
+			
+			.axis path,
+			.axis line {
+				fill: none;
+				stroke: steelblue;
+				stroke-width: 2,
+				shape-rendering: crispEdges;
+			}
+			
+			.axis text {
+				font-family: sans-serif;
+				font-size: 11px;
+			}
+			
+			.svgStatic {
+				//background-color: red;
+			}
+		</style>	
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">  
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"> 
+	
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+ 		<script type="text/javascript" src="http://d3js.org/d3.v2.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.0.3/sockjs.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> 
+		<script type="text/javascript" src="FinancialStreamingCharts.js"></script>
+     
+</head>
+<body onload="onLoadCallback();">
+	<div style="font-family:verdana; font-size:25px"> Financial Streaming Charts for Line, CandleStick, OHLC </div>
+	
+	<br> <br>
+	
+	<div class="btn-group" style="position:absolute; left: 100px; top: 150px;">
+	 <button type="button" class="btn  btn-lg btn-default dropdown-toggle" id="btnChartTitle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	   Line <span class="caret"></span>
+	 </button>
+	 <ul class="dropdown-menu">
+	   <li><a href="#" id="btnCandleStickChart">CandleStick</a></li>
+	   <li><a href="#" id="btnOHLC">OHLC</a></li>
+	   <li><a href="#" id="btnLineChart">Line</a></li>
+	 </ul>
+	</div>
+	
+	<div style="position:absolute; left: 540px; top: 150px; border:1px">
+	
+		<input type="button" value="Go Live" name="animate" style="position:absolute; left: 10px; top: 10px;" onclick="animate2()"/>
+		 
+		<input type="button" value="Zoom In" id="ZoomIn" style="position:absolute; left: 100px; top: 10px;"/>
+		 
+		<input type="button" value="Zoom Out" id="ZoomOut" style="position:absolute; left: 190px; top: 10px;"/>
+	</div>
+	
+	
+	<div id="chart" style="position:absolute;  top: 190px;">
+
+	</div>	 
+	
+	 
+</body>
+</html>
+
