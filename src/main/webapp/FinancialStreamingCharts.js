@@ -31,7 +31,7 @@ function parseResponseData(){
 
 function buildQuery(){
    
-	var url = "http://localhost:8080/stockticker/amzn-data-v2.json";
+	var url = "amzn-data-v2.json";
 
 	return url;
 }
@@ -465,20 +465,33 @@ function startAnimation(){
 	
 	// call real time data ...
 	//Create stomp client over sockJS protocol
-   var socket = new SockJS("http://localhost:8080/stockticker/api/ws");
+   var socket = new SockJS("/streamingchart/api/ws");
    var stompClient = Stomp.over(socket);
    
    // Render price data from server into HTML, registered as callback
    // when subscribing to price topic
    function renderPrice(frame) {
    	animateCounter = animateCounter + 1;
-   	if(animateCounter > 30 ) return;
+   	if(animateCounter > 50 ) return;
    	 var stockPrices = JSON.parse(frame.body);
 		//alert(stockPrices);
-   	 dTemp = parseNewResponseData(stockPrices);
-   	 data.push(dTemp[0]);
-		d3.select(".svgChart").remove();
-		drawChart();	
+		
+		data.shift();
+		dTemp = parseNewResponseData(stockPrices);
+		data.push(dTemp[0]);
+		
+		
+		d3.select(".svgChart").remove();	
+		drawChartPlot();
+		
+		if(existingChartType == "OHLCChart")
+			buildChartOHLC();
+		else if (existingChartType == "CandleStickChart") {
+			buildChartCandleStick();
+		}else if (existingChartType == "LineChart") {
+			buildLineChart();
+		}
+		
    }
    
 // Callback function to be called when stomp client is connected to server
